@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin123
+  application:
+    name: School
+  datasource:
+    url: jdbc:mysql://localhost:3306/schooldb
+    username: school_user
+    password: school_user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  h2:
+    console:
+      enabled: true
+
+
+logging:
+  level:
+    root: info
+    com.global.school: debug
+
