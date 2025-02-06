@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="Exams")
+@Table(name="exams")
 public class Exam {
 
     @Id
@@ -24,4 +24,6 @@ public class Exam {
 
     @JoinColumn(name="lesson_id")
     private Lesson lesson;
+
+
 }

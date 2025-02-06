@@ -8,11 +8,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name="Teachers")
+@Table(name="teachers")
 public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="teacher_id")
     private Integer teacherId;
 
     @Column(nullable = false,unique = true)

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name="Students")
+@Table(name="students")
 public class Student {
 
     @Id
@@ -49,6 +49,7 @@ public class Student {
     @JoinColumn(name="parent_id")
     private Parent parent;
 
+    @ManyToOne
     @JoinColumn(name="grade_id")
     private Grade grade;
 

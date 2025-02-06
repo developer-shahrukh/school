@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="Assignments")
+@Table(name="assignments")
 public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +24,6 @@ public class Assignment {
 
     @JoinColumn(name="lesson_id")
     private Lesson lesson;
+
+
 }

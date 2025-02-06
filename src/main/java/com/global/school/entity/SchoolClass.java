@@ -5,10 +5,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Classes")
+@Table(name="classes")
 public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "class_id")
     private Integer classId;
 
     @Column(nullable = false)

@@ -1,41 +1,44 @@
 package com.global.school.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.time.LocalTime;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Data
 @Entity
-@Table(name="Lessons")
+@Table(name = "lessons")
+@Data
 public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer lessonId;
+    @Column(name = "lesson_id")
+    private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false, length = 255)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "day", nullable = false, length = 10)
     private DayOfWeek day;
 
-    @Column(nullable = false)
-    private LocalTime startTime;
 
-    @Column(nullable = false)
-    private LocalTime endTime;
+    @Column(name = "start_time", nullable = false)
+    private Timestamp startTime;
 
-    @JoinColumn(name="subject_id")
+    @Column(name = "end_time", nullable = false)
+    private Timestamp endTime;
+    @ManyToOne
+    @JoinColumn(name = "subject_id", referencedColumnName = "subject_id")
     private Subject subject;
 
-    @JoinColumn(name="class_id")
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "class_id")
     private SchoolClass aClass;
 
-    @JoinColumn(name="teacher_id")
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
     private Teacher teacher;
-
 
     public enum DayOfWeek{
         MONDAY,
@@ -45,7 +48,4 @@ public class Lesson {
         FRIDAY,
         SATURDAY
     }
-
 }
-
-
